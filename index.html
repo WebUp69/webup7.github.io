@@ -1,85 +1,59 @@
-<html><head><title>Click to Start!</title>
-<script src="anti-steal.js"></script>
-</head><body><center><h1>Click to Start!</h1>
-<h3>SM64-JS | Made by Chase Wicklund on replit! (@jscraft)</h3></center>
-<script>
-  document.addEventListener('click', () => {
-<!--
+<html><head>
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex, nofollow">
+	<title>Game Emulator</title>
 
-document.write( '<html lang=\"en-us\"><head>\n' );
-document.write( '    <meta charset=\"utf-8\">\n' );
-document.write( '    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n' );
-document.write( '    <title>Super Mario 64</title>\n' );
-document.write( '    <style>\n' );
-document.write( '      body, html{\n' );
-document.write( '        margin: 0;\n' );
-document.write( '        padding: 0;\n' );
-document.write( '        width: 100vw;\n' );
-document.write( '        min-height: 100vh;\n' );
-document.write( '        font-family: Arial, Helvetica, sans-serif;\n' );
-document.write( '        color: white;\n' );
-document.write( '        image-rendering: pixelated;\n' );
-document.write( '        scrollbar-width: none;\n' );
-document.write( '      }\n' );
-document.write( '      ::-webkit-scrollbar {\n' );
-document.write( '        display: none;\n' );
-document.write( '      }\n' );
-document.write( '      #container {\n' );
-document.write( '        width: 100vw;\n' );
-document.write( '        height: 100vh;\n' );
-document.write( '        display: flex;\n' );
-document.write( '        align-items: center;\n' );
-document.write( '        justify-content: center;\n' );
-document.write( '      }\n' );
-document.write( '      canvas {\n' );
-document.write( '        width: 100vw;\n' );
-document.write( '        height: 100vh;\n' );
-document.write( '      }\n' );
-document.write( '    </style>\n' );
-document.write( '  </head>\n' );
-document.write( '  <body>\n' );
-document.write( '    <div id=\"container\">\n' );
-document.write( '      <canvas class=\"emscripten\" id=\"canvas\" width=\"1920\" height=\"1080\" style=\"cursor: default;\"></canvas>\n' );
-document.write( '    </div>\n' );
-document.write( '    <script type=\"text/javascript\">\n' );
-document.write( '      var Module = {\n' );
-document.write( '        preRun: [],\n' );
-document.write( '        postRun: [],\n' );
-document.write( '        print: (function() {\n' );
-document.write( '          return function(text) {\n' );
-document.write( '            if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(\' \');\n' );
-document.write( '            console.log(text);\n' );
-document.write( '          };\n' );
-document.write( '        })(),\n' );
-document.write( '        printErr: function(text) {\n' );
-document.write( '          if (arguments.length > 1)\n' );
-document.write( '            text = Array.prototype.slice.call(arguments).join(\' \');\n' );
-document.write( '          console.error(text);\n' );
-document.write( '        },\n' );
-document.write( '        canvas: (function() {\n' );
-document.write( '          var canvas = document.getElementById(\'canvas\');\n' );
-document.write( '          canvas.width = window.innerWidth; // Todo: how to do this from c++\n' );
-document.write( '          canvas.height = window.innerHeight;\n' );
-document.write( '          canvas.addEventListener(\"webglcontextlost\", function(e) {\n' );
-document.write( '            alert(\'WebGL context lost. You will need to reload the page.\');\n' );
-document.write( '            e.preventDefault();\n' );
-document.write( '          }, false);\n' );
-document.write( '          return canvas;\n' );
-document.write( '        })(),\n' );
-document.write( '        setStatus: function(text) {\n' );
-document.write( '        }\n' );
-document.write( '      };\n' );
-document.write( '    </script>\n' );
-document.write( '    <script async=\"\" type=\"text/javascript\" src=\"sm64.js\"></script>\n' );
-document.write( '    <script>\n' );
-document.write( '    </script>\n' );
-document.write( '  \n' );
-document.write( '\n' );
-document.write( '\n' );
-document.write( '\n' );
-document.write( '\n' );
-document.write( '</body></html>' );
+	
+		<style>
+		html, body {
+			height: 100%;
+		}
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #333;
+			color: white;
+			overflow-y:hidden;
+			overflow-x:hidden;
+		}
 
-//-->
-  })
-</script></body></html>
+		#gameDivId {
+			height: 100%;
+		}
+		</style>
+
+	
+<link id="css_Montserrat_700" rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:700" media="all"><style type="text/css">@keyframes retropulse {    from {background-color: black;}    to {background-color: #0490fe;}}
+.retro-loader-button {    display: block;    font-weight: 700;    border-radius: 5px;    margin: auto;    text-transform: uppercase;    font-family: 'Montserrat', sans-serif;    text-align: center;    line-height: 1;    cursor: pointer;    -webkit-appearance: none;    vertical-align: middle;    border: 1px solid transparent;    border-radius: 0;    padding: 1.1875em 1.5625em;    font-size: .9rem;    background-color: #444;    color: #fff;    animation-name: retropulse;    animation-duration: 0.8s;    animation-timing-function: linear;    animation-delay: initial;    animation-iteration-count: infinite;    animation-direction: alternate;    animation-fill-mode: initial;    animation-play-state: initial;}
+[data-whatinput=mouse] .retro-loader-button {    outline: 0;}
+.retro-loader-button.retro-loader-large {    font-size: 1.25rem;}
+div.retro-loader-ext-box {     display: table;    width : 100%;    height : 100%;}
+div.retro-loader-int-box {     display: table-cell;    vertical-align: middle;     width : 100%;    height : 100%;}
+</style></head>
+<body>
+
+	<style>
+	@keyframes retropulse { from {background-color: #2E5B73;} to {background-color: #4A93BA;} }
+	</style>
+
+	<div id="gameDivId"><div class="retro-loader-ext-box"><div class="retro-loader-int-box"><button class="retro-loader-button retro-loader-large">RUN GAME</button></div></div></div>
+
+	
+		
+			<script>
+
+			var RetroLoaderConfig = {
+	            divId : "gameDivId",
+	            sys : "nds",
+	            rom : "//static.emulatorgames.net/roms/nintendo-ds/Super Mario 64 DS (U)(Trashman).zip",
+	        };
+
+			</script>
+
+			<script src="//load.retroemulator.com/retroLoader.js" type="text/javascript"></script>
+
+		
+	
+
+
+</body></html>
