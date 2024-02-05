@@ -1,12 +1,127 @@
-<html><head>
-  <style>body,html,iframe{margin:0;padding:0;height:100%;width:100%;overflow:hidden}.forceIosScrolling{overflow:scroll;-webkit-overflow-scrolling:touch}</style>
-<script src="https://apis.google.com/_/scs/abc-static/_/js/k=gapi.lb.en.y0xCMa4KeeI.O/m=gapi_rpc/rt=j/sv=1/d=1/ed=1/rs=AHpOoo8-3MGCaatZB3kdS5TpZdd-gOSBHg/cb=gapi.loaded_0?le=scs" async=""></script><script src="https://apis.google.com/js/api.js?checkCookie=1" gapi_processed="true"></script></head>
-
-<body>
-<iframe id="userHtmlFrame" frameborder="0" scrolling="yes" style="overflow: auto;">
-</iframe>
-
-<script>function loadGapi(){var loaderScript=document.createElement('script');loaderScript.setAttribute('src','https://apis.google.com/js/api.js?checkCookie=1');loaderScript.onload=function(){this.onload=function(){};loadGapiClient();};loaderScript.onreadystatechange=function(){if(this.readyState==='complete'){this.onload();}};(document.head||document.body||document.documentElement).appendChild(loaderScript);}function updateUserHtmlFrame(userHtml,enableInteraction,forceIosScrolling){var frame=document.getElementById('userHtmlFrame');if(enableInteraction){if(forceIosScrolling){var iframeParent=frame.parentElement;iframeParent.classList.add('forceIosScrolling');}else{frame.style.overflow='auto';}}else{frame.setAttribute('scrolling','no');frame.style.pointerEvents='none';}clearCookies();clearStorage();frame.contentWindow.document.open();frame.contentWindow.document.write('<base target="_blank">'+userHtml);frame.contentWindow.document.close();}function onGapiInitialized(){gapi.rpc.call('..','innerFrameGapiInitialized');gapi.rpc.register('updateUserHtmlFrame',updateUserHtmlFrame);}function loadGapiClient(){gapi.load('gapi.rpc',onGapiInitialized);}if(document.readyState=='complete'){loadGapi();}else{self.addEventListener('load',loadGapi);}function clearCookies(){var cookies=document.cookie.split(";");for(var i=0;i<cookies.length;i++){var cookie=cookies[i];var equalPosition=cookie.indexOf("=");var name=equalPosition>-1?cookie.substr(0,equalPosition):cookie;document.cookie=name+"=;expires=Thu, 01 Jan 1970 00:00:00 GMT";document.cookie=name+"=;expires=Thu, 01 Jan 1970 00:00:01 GMT ;domain=.googleusercontent.com";}}function clearStorage(){try{localStorage.clear();sessionStorage.clear();}catch(e){}}</script>
-
-
-</body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta
+      name="description"
+      content="The best way to play Super Mario 64 on the go!"
+    />
+    <meta name="robots" content="noindex" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <title>Super Mario 64 on the Web!</title>
+    <style>
+      body,
+      html {
+        background-color: #000000;
+        image-rendering: pixelated;
+        scrollbar-width: none;
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      canvas {
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container text-light" id="controls">
+      <figure>
+        <blockquote class="blockquote">
+          <h1 class="display-6"><strong>Keyboard Controls</strong></h1>
+        </blockquote>
+        <figcaption class="blockquote-footer">
+          You can use a controller!
+        </figcaption>
+        <figcaption class="blockquote-footer">
+          You can save! Save is stored in local storage.
+        </figcaption>
+        <figcaption class="blockquote-footer">
+          Press page down to hide these instructions.
+        </figcaption>
+        <figcaption class="blockquote-footer">
+          Press page up to see them again.
+        </figcaption>
+      </figure>
+      <table class="table table-sm text-light" id="keyboard">
+        <thead>
+          <th scope="col">GameCube-Controller</th>
+          <th scope="col">Keyboard</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>A</td>
+            <td>X</td>
+          </tr>
+          <tr>
+            <td>B</td>
+            <td>C</td>
+          </tr>
+          <tr>
+            <td>L</td>
+            <td>Q</td>
+          </tr>
+          <tr>
+            <td>Z</td>
+            <td>Space</td>
+          </tr>
+          <tr>
+            <td>Start</td>
+            <td>Enter</td>
+          </tr>
+          <tr>
+            <td>C-Stick</td>
+            <td>WASD</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="container">
+      <canvas class="emscripten" id="canvas"></canvas>
+    </div>
+    <script type="text/javascript">
+      var Module = {
+        preRun: [],
+        postRun: [],
+        print: (function () {
+          return function (text) {
+            if (arguments.length > 1)
+              text = Array.prototype.slice.call(arguments).join(" ");
+            console.log(text);
+          };
+        })(),
+        printErr: function (text) {
+          if (arguments.length > 1)
+            text = Array.prototype.slice.call(arguments).join(" ");
+          console.error(text);
+        },
+        canvas: (function () {
+          var canvas = document.getElementById("canvas");
+          canvas.width = window.innerWidth; // Todo: how to do this from c++
+          canvas.height = window.innerHeight;
+          canvas.addEventListener(
+            "webglcontextlost",
+            function (e) {
+              alert("WebGL context lost. You will need to reload the page.");
+              e.preventDefault();
+            },
+            false
+          );
+          return canvas;
+        })(),
+        setStatus: function (text) {},
+      };
+    </script>
+    <script async type="text/javascript" src="sm64.us.f3dex2e.js"></script>
+    <script></script>
+  </body>
+</html>
