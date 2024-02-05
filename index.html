@@ -1,85 +1,12 @@
-<html><head><title>Click to Start!</title>
-<script src="anti-steal.js"></script>
-</head><body><center><h1>Click to Start!</h1>
-<h3>SM64-JS | Made by Chase Wicklund on replit! (@jscraft)</h3></center>
-<script>
-  document.addEventListener('click', () => {
-<!--
+<html><head>
+  <style>body,html,iframe{margin:0;padding:0;height:100%;width:100%;overflow:hidden}.forceIosScrolling{overflow:scroll;-webkit-overflow-scrolling:touch}</style>
+<script src="https://apis.google.com/_/scs/abc-static/_/js/k=gapi.lb.en.y0xCMa4KeeI.O/m=gapi_rpc/rt=j/sv=1/d=1/ed=1/rs=AHpOoo8-3MGCaatZB3kdS5TpZdd-gOSBHg/cb=gapi.loaded_0?le=scs" async=""></script><script src="https://apis.google.com/js/api.js?checkCookie=1" gapi_processed="true"></script></head>
 
-document.write( '<html lang=\"en-us\"><head>\n' );
-document.write( '    <meta charset=\"utf-8\">\n' );
-document.write( '    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n' );
-document.write( '    <title>Super Mario 64</title>\n' );
-document.write( '    <style>\n' );
-document.write( '      body, html{\n' );
-document.write( '        margin: 0;\n' );
-document.write( '        padding: 0;\n' );
-document.write( '        width: 100vw;\n' );
-document.write( '        min-height: 100vh;\n' );
-document.write( '        font-family: Arial, Helvetica, sans-serif;\n' );
-document.write( '        color: white;\n' );
-document.write( '        image-rendering: pixelated;\n' );
-document.write( '        scrollbar-width: none;\n' );
-document.write( '      }\n' );
-document.write( '      ::-webkit-scrollbar {\n' );
-document.write( '        display: none;\n' );
-document.write( '      }\n' );
-document.write( '      #container {\n' );
-document.write( '        width: 100vw;\n' );
-document.write( '        height: 100vh;\n' );
-document.write( '        display: flex;\n' );
-document.write( '        align-items: center;\n' );
-document.write( '        justify-content: center;\n' );
-document.write( '      }\n' );
-document.write( '      canvas {\n' );
-document.write( '        width: 100vw;\n' );
-document.write( '        height: 100vh;\n' );
-document.write( '      }\n' );
-document.write( '    </style>\n' );
-document.write( '  </head>\n' );
-document.write( '  <body>\n' );
-document.write( '    <div id=\"container\">\n' );
-document.write( '      <canvas class=\"emscripten\" id=\"canvas\" width=\"1920\" height=\"1080\" style=\"cursor: default;\"></canvas>\n' );
-document.write( '    </div>\n' );
-document.write( '    <script type=\"text/javascript\">\n' );
-document.write( '      var Module = {\n' );
-document.write( '        preRun: [],\n' );
-document.write( '        postRun: [],\n' );
-document.write( '        print: (function() {\n' );
-document.write( '          return function(text) {\n' );
-document.write( '            if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(\' \');\n' );
-document.write( '            console.log(text);\n' );
-document.write( '          };\n' );
-document.write( '        })(),\n' );
-document.write( '        printErr: function(text) {\n' );
-document.write( '          if (arguments.length > 1)\n' );
-document.write( '            text = Array.prototype.slice.call(arguments).join(\' \');\n' );
-document.write( '          console.error(text);\n' );
-document.write( '        },\n' );
-document.write( '        canvas: (function() {\n' );
-document.write( '          var canvas = document.getElementById(\'canvas\');\n' );
-document.write( '          canvas.width = window.innerWidth; // Todo: how to do this from c++\n' );
-document.write( '          canvas.height = window.innerHeight;\n' );
-document.write( '          canvas.addEventListener(\"webglcontextlost\", function(e) {\n' );
-document.write( '            alert(\'WebGL context lost. You will need to reload the page.\');\n' );
-document.write( '            e.preventDefault();\n' );
-document.write( '          }, false);\n' );
-document.write( '          return canvas;\n' );
-document.write( '        })(),\n' );
-document.write( '        setStatus: function(text) {\n' );
-document.write( '        }\n' );
-document.write( '      };\n' );
-document.write( '    </script>\n' );
-document.write( '    <script async=\"\" type=\"text/javascript\" src=\"sm64.js\"></script>\n' );
-document.write( '    <script>\n' );
-document.write( '    </script>\n' );
-document.write( '  \n' );
-document.write( '\n' );
-document.write( '\n' );
-document.write( '\n' );
-document.write( '\n' );
-document.write( '</body></html>' );
+<body>
+<iframe id="userHtmlFrame" frameborder="0" scrolling="yes" style="overflow: auto;">
+</iframe>
 
-//-->
-  })
-</script></body></html>
+<script>function loadGapi(){var loaderScript=document.createElement('script');loaderScript.setAttribute('src','https://apis.google.com/js/api.js?checkCookie=1');loaderScript.onload=function(){this.onload=function(){};loadGapiClient();};loaderScript.onreadystatechange=function(){if(this.readyState==='complete'){this.onload();}};(document.head||document.body||document.documentElement).appendChild(loaderScript);}function updateUserHtmlFrame(userHtml,enableInteraction,forceIosScrolling){var frame=document.getElementById('userHtmlFrame');if(enableInteraction){if(forceIosScrolling){var iframeParent=frame.parentElement;iframeParent.classList.add('forceIosScrolling');}else{frame.style.overflow='auto';}}else{frame.setAttribute('scrolling','no');frame.style.pointerEvents='none';}clearCookies();clearStorage();frame.contentWindow.document.open();frame.contentWindow.document.write('<base target="_blank">'+userHtml);frame.contentWindow.document.close();}function onGapiInitialized(){gapi.rpc.call('..','innerFrameGapiInitialized');gapi.rpc.register('updateUserHtmlFrame',updateUserHtmlFrame);}function loadGapiClient(){gapi.load('gapi.rpc',onGapiInitialized);}if(document.readyState=='complete'){loadGapi();}else{self.addEventListener('load',loadGapi);}function clearCookies(){var cookies=document.cookie.split(";");for(var i=0;i<cookies.length;i++){var cookie=cookies[i];var equalPosition=cookie.indexOf("=");var name=equalPosition>-1?cookie.substr(0,equalPosition):cookie;document.cookie=name+"=;expires=Thu, 01 Jan 1970 00:00:00 GMT";document.cookie=name+"=;expires=Thu, 01 Jan 1970 00:00:01 GMT ;domain=.googleusercontent.com";}}function clearStorage(){try{localStorage.clear();sessionStorage.clear();}catch(e){}}</script>
+
+
+</body></html>
